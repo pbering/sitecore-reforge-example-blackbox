@@ -1,6 +1,6 @@
 # Sitecore Reforge Black Box CM example
 
-For more details, see the main repository [Sitecore Reforge](https://github.com/sitecoreops/sitecore-reforge).
+For more details, see the main repository [Sitecore Reforge](https://github.com/pbering/sitecore-reforge).
 
 ## Features
 
