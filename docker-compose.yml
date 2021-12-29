@@ -1,0 +1,21 @@
+services:
+  mssql:
+    image: ${REGISTRY}sitecore-reforge-blackbox-mssql:${VERSION:-latest}
+    volumes:
+      - .\docker\data\mssql:C:\data:rw
+
+  mssql-init:
+    image: ${REGISTRY}sitecore-reforge-blackbox-mssql-init:${VERSION:-latest}
+    depends_on:
+      mssql:
+        condition: service_healthy
+
+  cm:
+    image: ${REGISTRY}sitecore-reforge-blackbox-cm:${VERSION:-latest}
+    ports:
+      - "47080:80"
+    volumes:
+      - ${HOST_LICENSE_FOLDER}:C:\license:ro
+    depends_on:
+      mssql-init:
+        condition: service_healthy
